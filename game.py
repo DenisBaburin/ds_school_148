@@ -16,4 +16,4 @@ while True:
     else:
         print(f"Вы угадали число! Это число {number}, вы угадали его за {count} попыток!")
         break # конец игры
-50
+print(55)
