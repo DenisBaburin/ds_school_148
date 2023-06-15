@@ -5,22 +5,39 @@
 import numpy as np
 
 
-def random_predict(number: int = 1) -> int:
-    """Рандомно угадываем число
-
+def game_core_v3(number: int = 1) -> int:    
+    """Функция принимает на входе угадываемое число и возвращает число попыток 
+    угадывания. Искомое число находится путем реализации алгоритма бинарного 
+    поиска: задаем максимальное и минимальное значения (в нашем случае это
+    1 и 100), и пока минимальное значение меньше максимального, реализуем цикл:
+    сумму минимального и максимального числа делим на два и сравниваем результат
+    с искомым числом. Если угадали с первого раза - количество попыток равно 1.
+    Если нет, то в зависимости от того, больше искомое число или меньше, чем 
+    среднее от суммы максимально и минимального числа, приравниваем среднее
+    к минимуму (если искомое число больше) или максимуму (если искомомое число
+    больше), и ищем новое среднее до тех пор, пока не найдем искомое число.
+    
     Args:
         number (int, optional): Загаданное число. Defaults to 1.
 
     Returns:
-        int: Число попыток
+        int: Количество попыток.
     """
-    count = 0
 
-    while True:
+    # задаем счетчик попыток, и изначальные границы поиска
+    count = 0
+    min_value = 1
+    max_value = 100
+    
+    while min_value <= max_value:
         count += 1
-        predict_number = np.random.randint(1, 101)  # предполагаемое число
-        if number == predict_number:
-            break  # выход из цикла если угадали
+        predict = (min_value + max_value)//2 # здесь рассчитываем значение искомого числа
+        if number == predict:
+          return count
+        if number > predict:
+            min_value = predict + 1
+        elif number < predict:
+            max_value = predict - 1    
     return count
 
 
@@ -45,6 +62,7 @@ def score_game(random_predict) -> int:
     return score
 
 
+
 if __name__ == "__main__":
     # RUN
-    score_game(random_predict)
+    score_game(game_core_v3)
