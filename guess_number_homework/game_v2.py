@@ -32,12 +32,14 @@ def game_core_v3(number: int = 1) -> int:
     while min_value <= max_value:
         count += 1
         predict = (min_value + max_value)//2 # здесь рассчитываем значение искомого числа
+        
         if number == predict:
           return count
         if number > predict:
             min_value = predict + 1
         elif number < predict:
-            max_value = predict - 1    
+            max_value = predict - 1   
+             
     return count
 
 
@@ -51,7 +53,7 @@ def score_game(random_predict) -> int:
         int: среднее количество попыток
     """
     count_ls = []
-    #np.random.seed(1)  # фиксируем сид для воспроизводимости
+    np.random.seed(1)  # фиксируем сид для воспроизводимости
     random_array = np.random.randint(1, 101, size=(1000))  # загадали список чисел
 
     for number in random_array:
