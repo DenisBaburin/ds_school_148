@@ -10,10 +10,13 @@
 
 ### Описание проекта    
  Данный проект позволяет попробовать свои силы в реальном Data Science-проекте. В данном проекте предстоит решить часть настоящей бизнес-задачи и примерить роль аналитика в компании HeadHunter.
-[Открыть ноубук проекта](#https://github.com/DenisBaburin/ds_school_148/blob/main/DS_school/PROJECT-1_Анализ%20резюме%20из%20HeadHunter/Project-1._Ноутбук-шаблон.ipynb)
 
-GitHub не поддерживает отображение интерактивной визуализации в Plotly. Графики, построенные с помощью Plotly, сохранены в формате HTML в папку diagrams_html
-[Открыть папку с графиками](#https://github.com/DenisBaburin/ds_school_148/tree/main/DS_school/PROJECT-1_Анализ%20резюме%20из%20HeadHunter/diagrams_html)
+[Открыть ноубук проекта](https://github.com/DenisBaburin/ds_school_148/blob/main/DS_school/PROJECT-1_Анализ%20резюме%20из%20HeadHunter/Project-1._Ноутбук-шаблон.ipynb)
+
+GitHub не поддерживает отображение интерактивной визуализации в Plotly. Графики, построенные с помощью Plotly, сохранены в формате HTML в папку diagrams_html.
+
+[Открыть папку с графиками](https://github.com/DenisBaburin/ds_school_148/tree/main/DS_school/PROJECT-1_Анализ%20резюме%20из%20HeadHunter/diagrams_html)
+
 :arrow_up:[к оглавлению](#Оглавление)
 
 **Что практикуем**     
