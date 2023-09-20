@@ -3,6 +3,7 @@ import styles from "@/styles/Home.module.css";
 import Dashboard from "./dashboard";
 import Header from "../components/Header";
 import SideMenu from "../components/SideMenu";
+import Table from "./table";
 
 export default function Home() {
   return (
@@ -14,9 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Header />
+        {/* <Header />
         <SideMenu />
-        <Dashboard />
+        <Dashboard /> */}
+        <Table />
       </main>
     </>
   );
