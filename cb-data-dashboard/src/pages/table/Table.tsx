@@ -11,7 +11,10 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import PersonAdd from "@mui/icons-material/PersonAdd";
 import React from "react";
+import { PersonRemove, Settings } from "@mui/icons-material";
 
 type Props = {};
 
@@ -35,11 +38,11 @@ const someTable = (props: Props) => {
 
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ width: "1000px" }}>
         <Table>
           <TableHead sx={{ backgroundColor: "grey" }}>
             <TableRow>
-              <TableCell>Add new user</TableCell>
+              <TableCell></TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Surname</TableCell>
               <TableCell>Age</TableCell>
@@ -50,7 +53,7 @@ const someTable = (props: Props) => {
             {users.map((user) => (
               <TableRow>
                 <TableCell>
-                  <Button
+                  <IconButton
                     id="demo-positioned-button"
                     aria-controls={open ? "demo-positioned-menu" : undefined}
                     aria-haspopup="true"
@@ -58,7 +61,7 @@ const someTable = (props: Props) => {
                     onClick={handleClick}
                   >
                     ...
-                  </Button>
+                  </IconButton>
                   <Menu
                     id="demo-positioned-menu"
                     aria-labelledby="demo-positioned-button"
@@ -66,11 +69,24 @@ const someTable = (props: Props) => {
                     open={open}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose}>Add new user</MenuItem>
                     <MenuItem onClick={handleClose}>
+                      <ListItemIcon>
+                        <PersonAdd fontSize="small" />
+                      </ListItemIcon>
+                      Add new user
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <ListItemIcon>
+                        <PersonRemove fontSize="small" />
+                      </ListItemIcon>
                       Delete current user
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>Edit current user</MenuItem>
+                    <MenuItem onClick={handleClose}>
+                      <ListItemIcon>
+                        <Settings fontSize="small" />
+                      </ListItemIcon>
+                      Edit current user
+                    </MenuItem>
                   </Menu>
                 </TableCell>
                 <TableCell>{user.name}</TableCell>
