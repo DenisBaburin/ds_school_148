@@ -1,20 +1,28 @@
+import { MoreVert, PersonRemove, Settings } from "@mui/icons-material";
+import PersonAdd from "@mui/icons-material/PersonAdd";
 import {
-  TableContainer,
-  TableRow,
-  Table,
-  TableCell,
-  Paper,
-  TableHead,
-  IconButton,
-  TableBody,
+  Box,
   Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
   Menu,
   MenuItem,
+  Paper,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
 } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import PersonAdd from "@mui/icons-material/PersonAdd";
 import React from "react";
-import { PersonRemove, Settings } from "@mui/icons-material";
 
 type Props = {};
 
@@ -26,6 +34,10 @@ const users = [
   { name: "Slava", surname: "Li", age: 43, sex: "Male" },
 ];
 
+const usersFiltered = users.filter((user) => user.age > 30);
+// console.log(usersFiltered.sort((a, b) => a.age - b.age));
+//console.log(usersFiltered.map((user) => user.name));
+
 const someTable = (props: Props) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -36,8 +48,54 @@ const someTable = (props: Props) => {
     setAnchorEl(null);
   };
 
+  type Props = {};
+
+  const UserForm = (props: Props) => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    return (
+      <div>
+        <Button variant="outlined" onClick={handleClickOpen}>
+          Open form dialog
+        </Button>
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Новый пользователь</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Введите данные нового пользователя.
+            </DialogContentText>
+          </DialogContent>
+          <Stack
+            direction="row"
+            useFlexGap
+            justifyContent="center"
+            columnGap={"5%"}
+          >
+            <TextField helperText="Введите имя"></TextField>
+            <TextField helperText="Введите фамилию"></TextField>
+            <TextField helperText="Введите возраст"></TextField>
+            <TextField helperText="Введите введите пол"></TextField>
+          </Stack>
+          <DialogActions>
+            <Button onClick={handleClose}>Отменить</Button>
+            <Button onClick={handleClose}>Добавить</Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    );
+  };
+
   return (
     <div>
+      <UserForm></UserForm>
       <TableContainer component={Paper} sx={{ width: "1000px" }}>
         <Table>
           <TableHead sx={{ backgroundColor: "grey" }}>
@@ -51,24 +109,12 @@ const someTable = (props: Props) => {
           </TableHead>
           <TableBody>
             {users.map((user) => (
-              <TableRow>
+              <TableRow key={user.name}>
                 <TableCell>
-                  <IconButton
-                    id="demo-positioned-button"
-                    aria-controls={open ? "demo-positioned-menu" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleClick}
-                  >
-                    ...
+                  <IconButton onClick={handleClick}>
+                    <MoreVert />
                   </IconButton>
-                  <Menu
-                    id="demo-positioned-menu"
-                    aria-labelledby="demo-positioned-button"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                  >
+                  <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
                     <MenuItem onClick={handleClose}>
                       <ListItemIcon>
                         <PersonAdd fontSize="small" />
