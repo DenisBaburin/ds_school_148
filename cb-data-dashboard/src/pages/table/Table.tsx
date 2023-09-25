@@ -1,7 +1,6 @@
 import { MoreVert, PersonRemove, Settings } from "@mui/icons-material";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import {
-  Box,
   Button,
   Dialog,
   DialogActions,
@@ -22,21 +21,10 @@ import {
   TextField,
 } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import React from "react";
+import React, { useState } from "react";
+import { users as usersData } from "./users.data";
 
 type Props = {};
-
-const users = [
-  { name: "Ivan", surname: "Ivanov", age: 23, sex: "Male" },
-  { name: "Sergey", surname: "Sergeev", age: 41, sex: "Male" },
-  { name: "Anna", surname: "Ivanovf", age: 25, sex: "Female" },
-  { name: "Inna", surname: "Kotova", age: 38, sex: "Female" },
-  { name: "Slava", surname: "Li", age: 43, sex: "Male" },
-];
-
-const usersFiltered = users.filter((user) => user.age > 30);
-// console.log(usersFiltered.sort((a, b) => a.age - b.age));
-//console.log(usersFiltered.map((user) => user.name));
 
 const someTable = (props: Props) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -47,6 +35,7 @@ const someTable = (props: Props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const [users, setUsers] = useState(usersData);
 
   type Props = {};
 
@@ -78,6 +67,7 @@ const someTable = (props: Props) => {
             useFlexGap
             justifyContent="center"
             columnGap={"5%"}
+            sx={{ padding: "0px 24px" }}
           >
             <TextField helperText="Введите имя"></TextField>
             <TextField helperText="Введите фамилию"></TextField>
@@ -108,7 +98,7 @@ const someTable = (props: Props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user) => (
+            {usersData.map((user) => (
               <TableRow key={user.name}>
                 <TableCell>
                   <IconButton onClick={handleClick}>
