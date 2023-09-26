@@ -1,27 +1,20 @@
 import { MoreVert, PersonRemove, Settings } from "@mui/icons-material";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   IconButton,
   Menu,
   MenuItem,
   Paper,
-  Stack,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  TextField,
 } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import React, { useState } from "react";
+import UserForm from "../dialog/UserForm";
 import { users as usersData } from "./users.data";
 
 type Props = {};
@@ -35,57 +28,13 @@ const someTable = (props: Props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [users, setUsers] = useState(usersData);
 
   type Props = {};
-
-  const UserForm = (props: Props) => {
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-
-    const handleClose = () => {
-      setOpen(false);
-    };
-
-    return (
-      <div>
-        <Button variant="outlined" onClick={handleClickOpen}>
-          Open form dialog
-        </Button>
-        <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Новый пользователь</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Введите данные нового пользователя.
-            </DialogContentText>
-          </DialogContent>
-          <Stack
-            direction="row"
-            useFlexGap
-            justifyContent="center"
-            columnGap={"5%"}
-            sx={{ padding: "0px 24px" }}
-          >
-            <TextField helperText="Введите имя"></TextField>
-            <TextField helperText="Введите фамилию"></TextField>
-            <TextField helperText="Введите возраст"></TextField>
-            <TextField helperText="Введите введите пол"></TextField>
-          </Stack>
-          <DialogActions>
-            <Button onClick={handleClose}>Отменить</Button>
-            <Button onClick={handleClose}>Добавить</Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    );
-  };
-
+  const [users, setUser] = useState(usersData);
+  console.log(users);
   return (
     <div>
-      <UserForm></UserForm>
+      <UserForm setUser={setUser} />
       <TableContainer component={Paper} sx={{ width: "1000px" }}>
         <Table>
           <TableHead sx={{ backgroundColor: "grey" }}>
@@ -98,7 +47,7 @@ const someTable = (props: Props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {usersData.map((user) => (
+            {users.map((user) => (
               <TableRow key={user.name}>
                 <TableCell>
                   <IconButton onClick={handleClick}>
