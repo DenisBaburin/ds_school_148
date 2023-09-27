@@ -29,10 +29,7 @@ export default function Home() {
     const [data, setData] = useState({ name: "", password: "" });
 
     const onChangeName = (event: { target: { value: any } }) => {
-      setData((currentData) => ({
-        ...currentData,
-        password: event.target.value,
-      }));
+      setData({ ...data, password: event.target.value });
       //SetName(event.target.value);
     };
 
