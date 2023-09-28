@@ -2,7 +2,17 @@ import { useState } from "react";
 import "./App.css";
 import UserForm from "./components/dialog/UserForm";
 import Table from "./components/table";
-import { Box, Button, Icon, Paper, Stack, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControlLabel,
+  FormGroup,
+  Icon,
+  Paper,
+  Stack,
+  Switch,
+  TextField,
+} from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
@@ -46,6 +56,7 @@ function App() {
 
   const [notes, setNote] = useState(initialNotes);
   const [newNote, setNewNote] = useState("");
+  const [isDark, setSwitch] = useState(false);
   const noteField = document.getElementById("note");
 
   const addNote = () => {
@@ -68,20 +79,39 @@ function App() {
     console.log(notesList);
   };
 
+  const handleOnClick = () => {
+    setSwitch(!isDark);
+  };
+
   return (
-    <Stack>
-      <Stack sx={{ minWidth: "440px" }}>
+    <Stack
+      sx={{
+        backgroundColor: isDark ? "black" : "darkgray",
+        color: isDark ? "white" : "black",
+        padding: "25px",
+        width: "500px",
+        display: "flex",
+      }}
+    >
+      <Stack>
+        <FormGroup>
+          <FormControlLabel
+            control={<Switch defaultChecked onChange={handleOnClick} />}
+            label={"Переключить тему"}
+          />
+        </FormGroup>
         <TextField
           placeholder="Добавьте заметку"
           onChange={(event) => setNewNote(event.target.value)}
           id="note"
+          sx={{ backgroundColor: "white", marginBottom: "5px" }}
         ></TextField>
       </Stack>
       <Stack>
         <Button
           sx={{
             backgroundColor: "beige",
-            border: "solid",
+            marginBottom: "5px",
           }}
           onClick={newNote != "" ? addNote : () => alert("добавьте заметку")}
         >
@@ -92,18 +122,15 @@ function App() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
-            gap: "2px",
-            alignItems: "center",
-            width: "500px",
-            margin: "2px",
+            marginBottom: "5px",
           }}
         >
           <Paper
             sx={{
-              width: "440px",
+              width: "500px",
               lineHeight: "2",
-              border: "solid",
+              marginRight: "5px",
+              height: "36px",
               color: "#1976d2",
               textDecorationLine: notes[index].status ? "line-through" : "",
             }}
@@ -111,6 +138,7 @@ function App() {
             {note.text}
           </Paper>
           <Button
+            sx={{ marginRight: "5px" }}
             variant="contained"
             color={notes[index].status ? "success" : "error"}
             onClick={() => handleStatusChange(index)}
