@@ -86,7 +86,7 @@ function App() {
   return (
     <Stack
       sx={{
-        backgroundColor: isDark ? "black" : "darkgray",
+        backgroundColor: isDark ? "yellowgreen" : "darkgray",
         color: isDark ? "white" : "black",
         padding: "25px",
         width: "500px",
