@@ -40,14 +40,14 @@
 
 // console.log(sum());
 
-function sumAll(...numbers) {
-  //   let res = 0;
+// function sumAll(...numbers) {
+//   //   let res = 0;
 
-  //   for (let num of numbers) {
-  //     res += num;
-  //   }
+//   //   for (let num of numbers) {
+//   //     res += num;
+//   //   }
 
-  return numbers.reduce((acc, cur) => acc + cur, 0);
-}
+//   return numbers.reduce((acc, cur) => acc + cur, 0);
+// }
 
-console.log(sumAll(1, 2, 3, 3));
+// console.log(sumAll(1, 2, 3, 3));
