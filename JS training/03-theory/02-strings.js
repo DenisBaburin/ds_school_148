@@ -83,7 +83,70 @@ function getNumberDigit(number, digitPosition) {
   // Ваш код здесь...
 }
 
-getNumberDigit(123, 0); // 1
-getNumberDigit(123, 1); // 2
-getNumberDigit(123, 2); // 3
-getNumberDigit(1, 2); // undefined
+// getNumberDigit(123, 0); // 1
+// getNumberDigit(123, 1); // 2
+// getNumberDigit(123, 2); // 3
+// getNumberDigit(1, 2); // undefined
+
+const car = {
+  name: "Hendai Solaris",
+  type: "sedan",
+  maxSpeed: "320",
+  color: "red",
+};
+
+const fillUpCars = (carData) => {
+  return `<div>
+        <h2>${carData.name}</h2>
+        <span>${carData.type}</span>
+    </div>
+    <div>
+        <span>Maximum speed:</span>
+        <span>${carData.maxSpeed}</span>
+    </div>
+    <div>
+        <span>Color:</span>
+        <span>${carData.color}</span>
+    </div>`;
+};
+
+//console.log(fillUpCars(car));
+
+const countWords = (sentence) => {
+  return sentence.split(" ").length;
+};
+
+// const sentence = "Hello, how are you?";
+// console.log(countWords(sentence)); // 4
+
+const fullName = "John Doe Baburin";
+
+const getInitials = (fullName) =>
+  fullName
+    .split(" ")
+    .map((word) => word[0] + ".")
+    .join(" ");
+
+//console.log(getInitials(fullName));
+
+const generateGoogleString = (numO) => {
+  const google = "Google";
+  return Math.abs(numO) > 2
+    ? google[0] + "o".repeat(numO) + google.slice(3)
+    : google;
+};
+
+// console.log(generateGoogleString(4));
+// // Goooogle
+
+// console.log(generateGoogleString(0));
+// // Google
+
+// console.log(generateGoogleString(-2));
+
+console.log(
+  "Hello, Привет!"
+    .split("")
+    .map((i) => ("oeие".indexOf(i) != -1 ? i : null))
+    .join("").length
+);
