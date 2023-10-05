@@ -8,7 +8,6 @@ import {
   TextField,
   DialogActions,
 } from "@mui/material";
-import { Props } from "next/script";
 import React, { useState } from "react";
 
 const userData = { name: "", surname: "", age: "", sex: "" };

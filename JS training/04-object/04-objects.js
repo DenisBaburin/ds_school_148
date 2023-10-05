@@ -61,12 +61,93 @@ const person = {
   "comlex key": "complex value",
   [new Date().getTime()]: "computed value",
   greet() {
-    console.log("greet person");
+    console.log("greet person", this);
   },
   arrow: () => {
-    console.log("Person Arrow");
+    console.log("Person Arrow", this);
+  },
+  info() {
+    console.log(this);
+    console.log("Person name: ", this.name);
   },
 };
 
-console.log(person.address);
+//console.log(person.address);
 //person.arrow();
+//const age = [1, 5, 87, 45, 8, 8];
+//console.log(age.sort((a, b) => a - b).slice(-2));
+// person.info();
+// person.greet();
+// person.arrow();
+
+// const addressKey = "address";
+// console.log(person[addressKey]);
+
+// person.age++;
+// person.languages.push("tr");
+
+// console.log(person.age);
+// console.log(person.languages);
+
+// delete person.address;
+
+// console.log(person);
+
+// const { age, name: firstName = "Ivan", languages } = person;
+
+// // console.log(age, firstName, languages);
+
+// for (let key in person) {
+//   if (person.hasOwnProperty(key)) {
+//     console.log(person[key]);
+//   }
+// }
+
+// Object.keys(person).forEach((key) => {
+//   console.log(person[key]);
+// });
+
+const logger = {
+  keys() {
+    console.log("Object keys", Object.keys(this));
+  },
+
+  keysAndValues() {
+    Object.keys(this).forEach((key) => {
+      console.log("Key:", key);
+      console.log("Value:", this[key]);
+    });
+  },
+};
+
+//logger.keys.bind(person)();
+
+// logger.keys.call(person);
+// logger.keys.apply(person);
+
+class Human {
+  isHuman = true;
+  humanGreet() {
+    return "Hello from human";
+  }
+}
+
+class Person extends Human {
+  constructor(name, age) {
+    super();
+    this.name = name ?? "Undefined name";
+    this.age = age ?? "Undefined age";
+  }
+
+  sayHello() {
+    console.log("Hello, ", this.name);
+  }
+}
+
+const person1 = new Person("Denis", 41);
+const person2 = new Person("Denis2", 43);
+
+// person1.sayHello();
+// person2.sayHello();
+
+console.log(person1.humanGreet());

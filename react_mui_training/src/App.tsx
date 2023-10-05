@@ -124,6 +124,7 @@ function App() {
             display: "flex",
             marginBottom: "5px",
           }}
+          key={note.text}
         >
           <Paper
             sx={{
