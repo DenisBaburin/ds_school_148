@@ -14,6 +14,7 @@ function App() {
   const createHandler = (product: IProduct) => {
     setModal(false);
     addProduct(product);
+    //console.log(product, products);
   };
 
   return (

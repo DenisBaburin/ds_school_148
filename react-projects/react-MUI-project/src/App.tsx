@@ -1,12 +1,12 @@
 import { Stack } from "@mui/material";
-import Users from "./components/Users";
+import UsersTable from "./components/UsersTable";
 
 function App() {
   return (
     <Stack
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
-      <Users />
+      <UsersTable />
     </Stack>
   );
 }

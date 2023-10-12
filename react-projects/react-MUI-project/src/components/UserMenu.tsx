@@ -6,6 +6,8 @@ import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { alpha, styled } from "@mui/material/styles";
 import * as React from "react";
+import { UserProps } from "./UsersTableBody";
+import useUsers from "../hooks/users";
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -50,7 +52,8 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }));
 
-export default function CustomizedMenus() {
+export default function CustomizedMenus({ index }: UserProps) {
+  const { users, setUsers } = useUsers();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -60,14 +63,17 @@ export default function CustomizedMenus() {
     setAnchorEl(null);
   };
 
+  const handleCloseDelete = (index: number) => {
+    users.splice(index, 1);
+    setUsers(users);
+    console.log(index);
+    console.log(users);
+    setAnchorEl(null);
+  };
+
   return (
     <div>
-      <IconButton
-        id="demo-customized-button"
-        //aria-controls={open ? "demo-customized-menu" : undefined}
-        //aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-      >
+      <IconButton id="demo-customized-button" onClick={handleClick}>
         <MoreVertIcon />
       </IconButton>
       <StyledMenu
@@ -83,7 +89,7 @@ export default function CustomizedMenus() {
           <EditIcon />
           Edit
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={() => handleCloseDelete(index)} disableRipple>
           <Delete />
           Delete
         </MenuItem>

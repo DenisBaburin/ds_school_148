@@ -2,16 +2,17 @@ import { TableBody, TableCell, TableRow } from "@mui/material";
 import { IUser } from "../models";
 import UserMenu from "./UserMenu";
 
-interface UserProps {
+export interface UserProps {
   user: IUser;
+  index: number;
 }
 
-const UsersData = ({ user }: UserProps) => {
+const UsersTableBody = ({ user, index }: UserProps) => {
   return (
     <TableBody>
       <TableRow>
         <TableCell>
-          <UserMenu />
+          <UserMenu index={index} user={user} />
         </TableCell>
         <TableCell>{user.name.firstname}</TableCell>
         <TableCell>{user.name.lastname}</TableCell>
@@ -24,4 +25,4 @@ const UsersData = ({ user }: UserProps) => {
   );
 };
 
-export default UsersData;
+export default UsersTableBody;
