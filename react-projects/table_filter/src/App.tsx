@@ -1,11 +1,7 @@
 import TableMain from "./components/table/TableMain";
 
 function App() {
-  return (
-    <>
-      <TableMain />
-    </>
-  );
+  return <TableMain />;
 }
 
 export default App;
