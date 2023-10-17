@@ -30,6 +30,7 @@ export default function CustomizedMenus(
     users.splice(index, 1);
     setUsers(users);
     setAnchorEl(null);
+    console.log(users);
   };
 
   return (

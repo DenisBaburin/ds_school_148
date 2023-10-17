@@ -6,7 +6,7 @@ function App() {
     <Stack
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
-      {/* <UsersTable /> */}
+      <UsersTable />
     </Stack>
   );
 }
