@@ -14,7 +14,7 @@
 
 Вам поставлена задача создать такую модель.
 
-[Открыть ноубук проекта](https://github.com/DenisBaburin/ds_school_148/blob/main/DS_school/PROJECT-3_EDA%20%2B%20Feature%20Engineering.%20Соревнование%20на%20Kaggle/PROJECT-3.%20EDA%20%2B%20Feature%20Engineering_Соревнование%20на%20Kaggle.ipynb)
+[Открыть ноубук проекта](https://github.com/DenisBaburin/ds_school_148/blob/main/DS_school/PROJECT-3_EDA%20%2B%20Feature%20Engineering.%20Соревнование%20на%20Kaggle/project-3-eda-kaggle-dspr-148-db.ipynb)
 
 :arrow_up:[к оглавлению](#Оглавление)
 
