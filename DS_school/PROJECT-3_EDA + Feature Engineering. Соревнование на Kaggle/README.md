@@ -1,4 +1,4 @@
-# PROJECT-3. Анализ вакансий из HeadHunter
+# PROJECT-3. EDA + Feature Engineering. Соревнование на Kaggle.
 
 ## Оглавление
 
